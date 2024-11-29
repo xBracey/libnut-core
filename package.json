@@ -1,6 +1,6 @@
 {
-  "name": "libnut",
-  "version": "2.7.1",
+  "name": "macpad-libnut-darwin",
+  "version": "3.0.1",
   "description": "libnut is an N-API module for desktop automation with node",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -42,18 +42,15 @@
     "node-addon-api": "7.1.0"
   },
   "optionalDependencies": {
-    "@nut-tree/node-mac-permissions": "2.2.1"
+    "@nut-tree-fork/node-mac-permissions": "2.2.1"
   },
   "engines": {
     "node": ">=10.15.3"
   },
   "os": [
-    "darwin",
-    "linux",
-    "win32"
+    "darwin"
   ],
   "cpu": [
-    "x64",
     "arm64"
   ]
 }
