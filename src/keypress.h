@@ -63,6 +63,9 @@ void win32KeyEvent(int key, MMKeyFlags flags);
 /* Toggles the given key down or up. */
 void toggleKeyCode(MMKeyCode code, const bool down, MMKeyFlags flags);
 
+/* Moves the space bar left or right. */
+void moveSpace(bool isLeft);
+
 /* Toggles the key down and then up. */
 void tapKeyCode(MMKeyCode code, MMKeyFlags flags);
 

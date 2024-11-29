@@ -48,6 +48,13 @@ void toggleKeyCode(MMKeyCode code, const bool down, MMKeyFlags flags)
 	}
 }
 
+void moveSpace(bool isLeft) {
+	toggleKeyCode(K_CONTROL, true, MOD_CONTROL);
+	toggleKeyCode(isLeft ? K_LEFT : K_RIGHT, true, MOD_CONTROL);
+	toggleKeyCode(isLeft ? K_LEFT : K_RIGHT, false, MOD_CONTROL);
+	toggleKeyCode(K_CONTROL, false, MOD_CONTROL);
+}
+
 void tapKeyCode(MMKeyCode code, MMKeyFlags flags)
 {
 	toggleKeyCode(code, true, flags);

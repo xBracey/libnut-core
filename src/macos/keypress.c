@@ -1,12 +1,12 @@
 #include "../keypress.h"
 #include "../deadbeef_rand.h"
 #include "../microsleep.h"
-
+#include "./hotkey.h"
 #include <ctype.h> /* For isupper() */
 
 #include <ApplicationServices/ApplicationServices.h>
-#import <IOKit/hidsystem/IOHIDLib.h>
-#import <IOKit/hidsystem/ev_keymap.h>
+#include <IOKit/hidsystem/IOHIDLib.h>
+#include <IOKit/hidsystem/ev_keymap.h>
 
 MMKeyFlags flagBuffer;
 
@@ -105,6 +105,11 @@ void toggleKey(char c, const bool down, MMKeyFlags flags) {
 void tapKey(char c, MMKeyFlags flags) {
   toggleKey(c, true, flags);
   toggleKey(c, false, flags);
+}
+
+
+void moveSpace(bool isLeft) {
+	postSymbolicHotkey(isLeft ? kMFSHMoveLeftASpace : kMFSHMoveRightASpace);
 }
 
 void toggleUnicodeKey(unsigned long ch, const bool down) {

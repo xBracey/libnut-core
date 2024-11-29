@@ -507,6 +507,13 @@ Napi::Number _keyTap(const Napi::CallbackInfo &info) {
     return Napi::Number::New(env, 1);
 }
 
+Napi::Number _moveSpace(const Napi::CallbackInfo &info) {
+    Napi::Env env = info.Env();
+    bool isLeft = info[0].As<Napi::Boolean>().Value();
+    moveSpace(isLeft);
+    return Napi::Number::New(env, 1);
+}
+
 Napi::Number _keyToggle(const Napi::CallbackInfo &info) {
     Napi::Env env = info.Env();
 
@@ -842,6 +849,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
     exports.Set(Napi::String::New(env, "typeString"), Napi::Function::New(env, _typeString));
     exports.Set(Napi::String::New(env, "typeStringDelayed"), Napi::Function::New(env, _typeStringDelayed));
     exports.Set(Napi::String::New(env, "setKeyboardDelay"), Napi::Function::New(env, _setKeyboardDelay));
+    exports.Set(Napi::String::New(env, "moveSpace"), Napi::Function::New(env, _moveSpace));
 
     exports.Set(Napi::String::New(env, "getScreenSize"), Napi::Function::New(env, _getScreenSize));
     exports.Set(Napi::String::New(env, "highlight"), Napi::Function::New(env, _highlight));
